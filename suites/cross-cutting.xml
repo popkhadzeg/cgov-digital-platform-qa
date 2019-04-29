@@ -42,5 +42,10 @@
       <class name="gov.cancer.tests.crosscutting.PublicUse_Test" />
     </classes>
   </test>
+  <test name="Pretty Url tests." preserve-order="true">
+    <classes>
+      <class name="gov.cancer.tests.crosscutting.PrettyUrl_Test" />
+    </classes>
+  </test>
 
 </suite>
