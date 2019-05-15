@@ -27,7 +27,10 @@ public class NavItem {
 
   }
 
-  // ========
+
+
+
+  //========
 
   public boolean isCurrent(WebElement el) {
 
@@ -59,21 +62,27 @@ public class NavItem {
   }
 }
 
-/*
- * // public WebElement getCurrentItem() {
- * 
- * 
- * for (WebElement we : element) { if (isCurrent (we)) {
- * 
- * return we; } else if (hasChildren(we)) {
- * 
- * for (NavItem weChild : children) {
- * 
- * if (weChild.getAttribute("class").contains("current-page")) {
- * 
- * return weChild; } } }}
- * 
- * return null;
- * 
- * } //
- */// ------------
+/*//
+public WebElement getCurrentItem() {
+
+
+  for (WebElement we : element) {
+    if (isCurrent (we)) {
+
+      return we;
+    }
+    else if (hasChildren(we)) {
+
+       for (NavItem weChild : children) {
+
+        if (weChild.getAttribute("class").contains("current-page")) {
+
+          return weChild;
+        }
+      }
+   }}
+
+   return null;
+
+}
+//*///------------
