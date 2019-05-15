@@ -8,26 +8,23 @@ public class LeftNav_Test extends TestObjectBase {
 
 
   public void fake_test() {
-    
+
     String path ="about-cancer/coping/feelings";
-    
+
     TestRunner.run(PageWithSectionNav.class, path, (PageWithSectionNav page) -> {
 
-  
-     
-      
     });
     }
-    
-  
-  
+
+
+
   public static void main(String[] args) {
     LeftNav_Test test = new LeftNav_Test();
     test.fake_test();
   }
-  
-  
-  
-  
+
+
+
+
 
 }

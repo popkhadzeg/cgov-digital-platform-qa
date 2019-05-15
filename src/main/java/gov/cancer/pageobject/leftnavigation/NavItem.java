@@ -1,6 +1,7 @@
 
 package gov.cancer.pageobject.leftnavigation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
@@ -8,21 +9,22 @@ import gov.cancer.framework.ElementHelper;
 
 public class NavItem {
 
-  private List<NavItem> children;
+  private List<NavItem> children = new ArrayList<NavItem>();
   private WebElement element;
+  private WebElement textElement;
 
   public NavItem(WebElement element) {
 
     this.element = element;
+    this.textElement = ElementHelper.findElement(element, ":scope > div");
 
-    List<WebElement> subElements = ElementHelper.findElements(element, "ul > li");
+    List<WebElement> subElements = ElementHelper.findElements(element, ":scope > ul > li");
 
     for (WebElement we : subElements) {
 
       NavItem child = new NavItem(we);
 
       children.add(child);
-
     }
 
   }
