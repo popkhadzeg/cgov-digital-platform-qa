@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Tests for Left Nav" parallel="none">
+
+  <test name="Left Navigation tests." preserve-order="true">
+    <classes>
+      <class name="gov.cancer.tests.crosscutting.LeftNav_Test" />
+    </classes>
+  </test>
+
+
+</suite>
