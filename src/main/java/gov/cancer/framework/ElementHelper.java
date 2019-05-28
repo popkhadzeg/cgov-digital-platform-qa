@@ -90,4 +90,19 @@ public class ElementHelper {
     }
   }
 
+  /**
+   * Retrieves the list of discrete names in a WebElement's class
+   * attribute
+   * @param element The element to use.
+   * @return Array of String objects. If the element has no class
+   * attribute, an empty array is returned.
+   */
+  public static String[] getClassList(WebElement element) {
+
+    String attrib = element.getAttribute("class");
+    if (attrib == null)
+      return new String[0];
+
+    return attrib.split("\\s");
+  }
 }
