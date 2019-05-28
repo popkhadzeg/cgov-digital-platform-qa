@@ -3,20 +3,19 @@ package gov.cancer.pageobject.crosscutting;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import gov.cancer.framework.ElementHelper;
 import gov.cancer.pageobject.PageObjectBase;
-import gov.cancer.pageobject.helper.OnThisPage;
+import gov.cancer.pageobject.section.Body;
+import gov.cancer.pageobject.section.OnThisPage;
 
 public class PageWithOnThisPage extends PageObjectBase {
 
-  WebElement onThisPageSection = null;
+  WebElement otpSection;
 
   String sectionSelector = ".on-this-page";
 
-  final public String onThisPageHeader = ".on-this-page h6";
 
   /**
    * Constructor
@@ -25,46 +24,25 @@ public class PageWithOnThisPage extends PageObjectBase {
    */
   public PageWithOnThisPage(String path) {
     super(path);
-
-    onThisPageSection = ElementHelper.findElement(this.getBrowser(), sectionSelector);
+   
+    this.otpSection = ElementHelper.findElement(getBrowser(), sectionSelector);
   }
 
   /**
-   * Returns true if the page has a On This Page section, false otherwise.
-   */
-  public boolean onThisPageSectionIsVisible() {
+   * * Returns true if the page has a On This Page section, false otherwise.
+  */
+ public boolean isOtpSectionVisible() {
+ 
+   return otpSection != null && otpSection.isDisplayed();
 
-    return onThisPageSection != null && onThisPageSection.isDisplayed();
+ }
 
+  public OnThisPage getOnThisPage() {
+    WebElement otpSection = ElementHelper.findElement(this.getBrowser(), sectionSelector);
+    OnThisPage otp = new OnThisPage(otpSection);
+    return otp;
   }
 
-  /**
-   * Find all of the On This Page anchor links on the page.
-   */
-  public List<OnThisPage> getOnThisPage() {
-
-    List<OnThisPage> links = new ArrayList<OnThisPage>();
-
-    List<WebElement> rawLinks = onThisPageSection.findElements(By.cssSelector("ul li"));
-
-    for (WebElement link : rawLinks) {
-
-      links.add(new OnThisPage(link));
-    }
-    return links;
-  }
-
-  /**
-   * Reports whether On This Page Header is in correct language.
-   *
-   * @return True if the text is found, false otherwise.
-   *
-   *         NOTE: If the Intro Text section does not appear on the page, it
-   *         cannot contain text and this method will return false;
-   */
-  public String getOnThisPageHeaderText() {
-
-    return ElementHelper.findElement(getBrowser(), onThisPageHeader).getText();
-  }
-
+  
+  
 }
