@@ -1,16 +1,16 @@
 package gov.cancer.tests.crosscutting;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import gov.cancer.framework.ExcelDataReader;
 import gov.cancer.pageobject.crosscutting.PageWithOnThisPage;
-import gov.cancer.pageobject.helper.RelatedResource;
 import gov.cancer.pageobject.section.Body;
 import gov.cancer.pageobject.section.OnThisPage;
 import gov.cancer.tests.TestObjectBase;
@@ -32,8 +32,8 @@ public class OnThisPage_Test extends TestObjectBase {
   public void verifyOnThisPageIsVisible(String path) {
 
     TestRunner.run(PageWithOnThisPage.class, path, (PageWithOnThisPage page) -> {
-    
-      Assert.assertTrue(page.isOtpSectionVisible(), "On This Pages section is visible");
+
+      Assert.assertTrue(page.isOnThisPageSectionVisible(), "On This Pages section is visible");
 
     });
 
@@ -46,31 +46,32 @@ public class OnThisPage_Test extends TestObjectBase {
    * @param path Path of the page to check.
    */
   @Test(dataProvider = "getPageWithoutOnThisPagePaths")
-  public void verifyPageWithoutOnThisPage(String path) {
+  public void verifyOnThisPageNotIsVisible(String path) {
 
     TestRunner.run(PageWithOnThisPage.class, path, (PageWithOnThisPage page) -> {
-    
-      Assert.assertFalse(page.isOtpSectionVisible(), "On This Pages section is visible");
+
+      Assert.assertFalse(page.isOnThisPageSectionVisible(), "On This Pages section is visible");
 
     });
 
   }
 
   /**
-   * This method compare "On This Page" Section header for correct translation
+   * This method compares "On This Page" Section header for correct translation
    *
    * @param path Path of the page to check.
    */
-  @Test(dataProvider = "getPagesWithTranslations")
-  public void verifyOnThisPageHeaderText(String path, String otpHeader) {
+  @Test(dataProvider = "getPagesWithSectionHeaderTranslations")
+  public void verifyOnThisPageSectionHeaderText(String path, String otpHeader) {
 
     TestRunner.run(PageWithOnThisPage.class, path, (PageWithOnThisPage page) -> {
       OnThisPage otp = page.getOnThisPage();
-      
-      Assert.assertEquals(otp.getOnThisPageHeaderText(), otpHeader);
+
+      Assert.assertEquals(otp.getOnThisPagesSectionHeaderText(), otpHeader);
     });
 
   }
+  
 
   /**
    * 
@@ -84,9 +85,8 @@ public class OnThisPage_Test extends TestObjectBase {
   public void verifyOnThisPageAnchorLinks(String path) {
 
     TestRunner.run(PageWithOnThisPage.class, path, (PageWithOnThisPage page) -> {
-      
+
       OnThisPage otp = page.getOnThisPage();
-    
       List<OnThisPage> anchorList = otp.getOnThisPage();
 
       Assert.assertTrue(anchorList.size() > 0);
@@ -107,11 +107,41 @@ public class OnThisPage_Test extends TestObjectBase {
         Assert.assertTrue(anchors.isAnchorTagPresent(), "Is Anchor tag present");
       }
 
-       
-      
     });
   }
-  
+
+  /**
+   * 
+   * This method is comparing "On This Page" anchor links to "On This Page" body
+   * headers to verify text and size match
+   *
+   * @param path Path of the page to check.
+   *
+   */
+  @Test(dataProvider = "getOnThisPagePaths")
+  public void verifyAnchorAndHeadermatch(String path) {
+
+    TestRunner.run(PageWithOnThisPage.class, path, (PageWithOnThisPage page) -> {
+
+      // Get the list of Body Headers
+      Body body = page.getBodySection();
+      List<String> bodyHeaderList = body.getBodySectionAsString();
+
+      // Get the list of OTP anchor list
+      OnThisPage otp = page.getOnThisPage();
+      List<String> anchorList = otp.getAnchorListAsString();
+
+      // asserting header list and anchor list size match
+      Assert.assertTrue(bodyHeaderList.size() == anchorList.size());
+
+      // looping through each header list and anchor list item text to find a match
+      for (int i = 0; i < bodyHeaderList.size(); i++) {
+        Assert.assertTrue(bodyHeaderList.get(i).equals(anchorList.get(i)));
+
+      }
+
+    });
+  }
 
   /**
    *
@@ -130,8 +160,8 @@ public class OnThisPage_Test extends TestObjectBase {
    *         path.
    * @return header Expected header text
    */
-  @DataProvider(name = "getPagesWithTranslations")
-  public Iterator<Object[]> getPagesWithTranslations() {
+  @DataProvider(name = "getPagesWithSectionHeaderTranslations")
+  public Iterator<Object[]> getPagesWithSectionHeaderTranslations() {
     String[] columns = { "path", "otpHeader" };
     return new ExcelDataReader(getDataFilePath("on-this-page-data.xlsx"), "pages_with_on_this_page", columns);
   }

@@ -8,21 +8,24 @@ import org.openqa.selenium.WebElement;
 
 import gov.cancer.framework.ElementHelper;
 
-/*
- * r 
- */
 public class OnThisPage {
 
   // "On This Page" section
   private WebElement otpSection;
-
-  // Finds "On This Page" links
   private WebElement otpAnchors;
 
+  // Retrieve "On This Page" links
   final public String otpLinks = ":scope > ul > li";
 
-  final public String otpHeader = ":scope h6";
+  // Retrieve "On This Page" section header
+  final public String otpSectionheader = ":scope h6";
 
+  /**
+   * 
+   * Constructor
+   * 
+   * @param element WebElement containing "On This Page" section and anchor links.
+   */
   public OnThisPage(WebElement element) {
 
     this.otpSection = element;
@@ -38,25 +41,42 @@ public class OnThisPage {
    *         NOTE: If the section does not appear on the page, it cannot contain
    *         text and this method will return false;
    */
-  public String getOnThisPageHeaderText() {
+  public String getOnThisPagesSectionHeaderText() {
 
-    return ElementHelper.findElement(otpSection, otpHeader).getText();
+    return ElementHelper.findElement(otpSection, otpSectionheader).getText();
   }
 
   /**
-   * Find the list of "On This Page" anchor links on the page.
+   * 
+   * Retrieve the list of "On This Page" anchor links on the page.
    */
   public List<OnThisPage> getOnThisPage() {
 
-    List<OnThisPage> links = new ArrayList<OnThisPage>();
+    List<OnThisPage> anchorList = new ArrayList<OnThisPage>();
 
     List<WebElement> rawLinks = ElementHelper.findElements(this.otpSection, otpLinks);
 
-    for (WebElement link : rawLinks) {
-      links.add(new OnThisPage(link));
+    for (WebElement links : rawLinks) {
+      anchorList.add(new OnThisPage(links));
     }
 
-    return links;
+    return anchorList;
+  }
+
+  /**
+   * 
+   * Retrieve the String list of "On This Page" items
+   */
+  public List<String> getAnchorListAsString() {
+    List<String> anchorListAsString = new ArrayList<>();
+
+    List<WebElement> rawLinks = ElementHelper.findElements(this.otpSection, otpLinks);
+
+    for (WebElement links : rawLinks) {
+      anchorListAsString.add(new OnThisPage(links).getText());
+    }
+
+    return anchorListAsString;
   }
 
   /*
@@ -96,6 +116,14 @@ public class OnThisPage {
     if (otpAnchors != null)
       return otpAnchors.getAttribute("href").contains("#");
     return false;
+  }
+
+  /**
+   * 
+   * Retrieve OTP anchor text
+   */
+  public String getText() {
+    return otpAnchors.getText().trim();
   }
 
 }
