@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Tests for MetaData." parallel="none">
+
+  <test name="MetaData_BrowserTitle tests" preserve-order="true">
+    <classes>
+      <class
+        name="gov.cancer.tests.metaData.MetaData_BrowserTitle_Test" />
+    </classes>
+  </test>
+
+  <test name="MetaData_CanonicalURL tests" preserve-order="true">
+    <classes>
+      <class
+        name="gov.cancer.tests.metaData.MetaData_CanonicalURL_Test" />
+    </classes>
+  </test>
+
+  <test name="MetaData_ContentLanguage tests" preserve-order="true">
+    <classes>
+      <class
+        name="gov.cancer.tests.metaData.MetaData_ContentLanguage_Test" />
+    </classes>
+  </test>
+
+  <test name="MetaData_MetaDescription tests" preserve-order="true">
+    <classes>
+      <class
+        name="gov.cancer.tests.metaData.MetaData_MetaDescription_Test" />
+    </classes>
+  </test>
+
+  <test name="MetaData_DCTermsCoverage tests" preserve-order="true">
+    <classes>
+      <class
+        name="gov.cancer.tests.metaData.MetaData_DCTermsCoverage_Test" />
+    </classes>
+  </test>
+
+  <test name="MetaData_DCTermsIsPartOf tests" preserve-order="true">
+    <classes>
+      <class
+        name="gov.cancer.tests.metaData.MetaData_DCTermsIsPartOf_Test" />
+    </classes>
+  </test>
+
+  <test name="MetaData_DCTermsReferencedBy tests"
+    preserve-order="true">
+    <classes>
+      <class
+        name="gov.cancer.tests.metaData.MetaData_DCTermsReferencedBy_Test" />
+    </classes>
+  </test>
+
+  <test name="MetaData_DCTermsSubject tests" preserve-order="true">
+    <classes>
+      <class
+        name="gov.cancer.tests.metaData.MetaData_DCTermsSubject_Test" />
+    </classes>
+  </test>
+
+  <test name="MetaData_DCTermsType tests" preserve-order="true">
+    <classes>
+      <class
+        name="gov.cancer.tests.metaData.MetaData_DCTermsType_Test" />
+    </classes>
+  </test>
+
+  <test name="MetaData_DCTermsIssuedDate tests"
+    preserve-order="true">
+    <classes>
+      <class
+        name="gov.cancer.tests.metaData.MetaData_DCTermsIssuedDate_Test" />
+    </classes>
+  </test>
+
+  <test name="MetaData_OGDescription tests" preserve-order="true">
+    <classes>
+      <class
+        name="gov.cancer.tests.metaData.MetaData_OGDescription_Test" />
+    </classes>
+  </test>
+
+  <test name="MetaData_OGSiteName tests" preserve-order="true">
+    <classes>
+      <class
+        name="gov.cancer.tests.metaData.MetaData_OGSiteName_Test" />
+    </classes>
+  </test>
+
+  <test name="MetaData_OGTitle tests" preserve-order="true">
+    <classes>
+      <class
+        name="gov.cancer.tests.metaData.MetaData_OGTitle_Test" />
+    </classes>
+  </test>
+
+  <test name="MetaData_OGType tests" preserve-order="true">
+    <classes>
+      <class name="gov.cancer.tests.metaData.MetaData_OGType_Test" />
+    </classes>
+  </test>
+
+  <test name="MetaData_OGURL tests" preserve-order="true">
+    <classes>
+      <class name="gov.cancer.tests.metaData.MetaData_OGURL_Test" />
+    </classes>
+  </test>
+
+  <test name="MetaData_TwitterCard tests" preserve-order="true">
+    <classes>
+      <class
+        name="gov.cancer.tests.metaData.MetaData_TwitterCard_Test" />
+    </classes>
+  </test>
+
+
+
+</suite>

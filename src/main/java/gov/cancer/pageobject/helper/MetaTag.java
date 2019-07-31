@@ -20,10 +20,19 @@ public class MetaTag {
   }
 
   /**
-   * Returns the content of the robot meta tag
+   * Returns the content of the meta tag
    */
   public String getContent() {
     return this.element.getAttribute("content");
+  }
+
+  
+
+  /**
+   * Returns the content of the meta tag
+   */
+  public String getHref() {
+    return this.element.getAttribute("hreflang");
   }
 
 }
