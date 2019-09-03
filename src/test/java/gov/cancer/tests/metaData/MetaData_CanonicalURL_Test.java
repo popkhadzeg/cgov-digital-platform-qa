@@ -15,9 +15,8 @@ import gov.cancer.tests.TestRunner;
 public class MetaData_CanonicalURL_Test extends TestObjectBase {
 
   /**
-   * Verify <link rel="canonical" href="
+   * Asserts current page URL equals link rel="canonical" url metatag
    *
-   * 
    * @param path Path of the page to check.
    */
   @Test(dataProvider = "getPagesWithMetaCanonicalURL")

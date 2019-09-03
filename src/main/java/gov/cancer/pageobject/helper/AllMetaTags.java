@@ -5,11 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class AllMetaTags extends MetaTag {
-  
-  @FindBy(how = How.CSS, using = "#main h1")
-  WebElement contentTitle;
-  String dcTermsType = "meta[name='dcterms.type']";
-  String dc = "#main h1";
+
   /**
    * constructor
    */
@@ -19,7 +15,7 @@ public class AllMetaTags extends MetaTag {
   }
 
   /**
-   * Reports whether the content has Twitter meta tag
+   * Reports whether page has metatag 'name="twitter:card" content="summary"
    */
   public boolean getTwitterMetaName() {
     String str = getContent();
@@ -28,10 +24,9 @@ public class AllMetaTags extends MetaTag {
     else
       return false;
   }
-  
 
   /**
-   * Reports whether the content has Twitter meta tag
+   * Reports whether page has metatag 'property="og:type" content="Website"
    */
   public boolean getOGTypeMetaName() {
     String str = getContent();
@@ -40,16 +35,23 @@ public class AllMetaTags extends MetaTag {
     else
       return false;
   }
-  
+
+  /**
+   * Reports whether page has metatag 'name="dcterms.isReferencedBy"
+   * content="event1"
+   */
   public boolean getDCTermsIsReferencedBy() {
     String str = getContent();
-    if (str != null && (str.trim().equals("event1,event53")))
+    if (str != null && (str.trim().equals("event1")))
       return true;
     else
       return false;
   }
-  
-  
+
+  /**
+   * Reports whether page has metatag 'name="dcterms.coverage"
+   * content="nciglobal,ncienterprise"
+   */
   public boolean getDCTermsCoverage() {
     String str = getContent();
     if (str != null && (str.trim().equals("nciglobal,ncienterprise")))
@@ -57,15 +59,5 @@ public class AllMetaTags extends MetaTag {
     else
       return false;
   }
-  
-  public boolean getHREFLanguage() {
-    String str = getContent();
-    if (str != null && (str.trim().equals("nciglobal,ncienterprise")))
-      return true;
-    else
-      return false;
-  }
- 
-  
-  
+
 }

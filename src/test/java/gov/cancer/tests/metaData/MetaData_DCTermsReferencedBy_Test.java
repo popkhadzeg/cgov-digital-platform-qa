@@ -15,8 +15,8 @@ import gov.cancer.tests.TestRunner;
 public class MetaData_DCTermsReferencedBy_Test extends TestObjectBase {
 
   /**
-   * Verify <meta name="dcterms.isReferencedBy" content="event1"
-   *
+   * Asserts if 'dcterms.isReferencedBy' metatag exist on the page.
+   * 
    * @param path Path of the page to check.
    */
   @Test(dataProvider = "getPagesWithDCTermsReferencedBy")

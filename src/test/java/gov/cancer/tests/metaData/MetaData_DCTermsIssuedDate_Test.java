@@ -15,9 +15,12 @@ import gov.cancer.tests.TestRunner;
 public class MetaData_DCTermsIssuedDate_Test extends TestObjectBase {
 
   /**
-   * Verify name="dcterms.issued" content="12/10/2012 - 07:00" />
+   * This method is checking if 'dcterms.issued' matatag name matches
+   * issuedDate from data provider
    * 
-   * @param path Path of the page to check.
+   * @param path       Path of the page to check.
+   * @param issuedDate Label of issuedDate metatag.
+   * 
    */
   @Test(dataProvider = "getPagesWithDCTermsIssuedDate")
   public void verifyPagesWithDCTermsIssuedDate(String path, String issuedDate) {

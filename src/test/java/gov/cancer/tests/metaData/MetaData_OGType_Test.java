@@ -15,8 +15,8 @@ import gov.cancer.tests.TestRunner;
 public class MetaData_OGType_Test extends TestObjectBase {
 
   /**
-   * Verify <meta property="og:type" content=
-   *
+   * Asserts if 'property="og:type' metatag exist on the page.
+   * 
    * @param path Path of the page to check.
    */
   @Test(dataProvider = "getPagesWithOGMetaTag")

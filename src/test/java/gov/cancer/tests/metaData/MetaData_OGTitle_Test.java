@@ -15,9 +15,12 @@ import gov.cancer.tests.TestRunner;
 public class MetaData_OGTitle_Test extends TestObjectBase {
 
   /**
-   * Verify <meta property="og:title" content="
+   * This method is checking if 'og:title' matatag name matches OGTitle from
+   * data provider
    * 
-   * @param path Path of the page to check.
+   * @param path   Path of the page to check.
+   * @param OGTitle Label of OGTitle metatag.
+   * 
    */
   @Test(dataProvider = "getPagesWithOGTitle")
   public void verifyPagesWithOGTitle(String path, String OGTitle) {

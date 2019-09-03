@@ -15,9 +15,8 @@ import gov.cancer.tests.TestRunner;
 public class MetaData_DCTermsCoverage_Test extends TestObjectBase {
 
   /**
-   * Verify <meta name="dcterms.coverage" content="nciglobal,ncienterprise"
-   * ===========================
-   *
+   * Asserts 'dcterms.coverage' metatag exist on the page.
+   * 
    * @param path Path of the page to check.
    */
   @Test(dataProvider = "getPagesWithDCTermsCoverage")

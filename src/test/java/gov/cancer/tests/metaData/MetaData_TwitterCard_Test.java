@@ -15,8 +15,8 @@ import gov.cancer.tests.TestRunner;
 public class MetaData_TwitterCard_Test extends TestObjectBase {
 
   /**
-   * Verify <meta name="twitter:card" content="summary"
-   *
+   * Asserts 'twitter:card' metatag exist on the page.
+   * 
    * @param path Path of the page to check.
    */
   @Test(dataProvider = "getPagesWithAllMeta")

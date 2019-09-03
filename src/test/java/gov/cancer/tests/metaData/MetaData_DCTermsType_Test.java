@@ -15,9 +15,12 @@ import gov.cancer.tests.TestRunner;
 public class MetaData_DCTermsType_Test extends TestObjectBase {
 
   /**
-   * Verify <meta name="dcterms.type" content="cgvBiography"
-   *
-   * @param path Path of the page to check.
+   * This method is checking if 'dcterms.type' matatag name matches
+   * dcTermsType from data provider
+   * 
+   * @param path           Path of the page to check.
+   * @param dcTermsType    Label of dcTermsType metatag.
+   * 
    */
   @Test(dataProvider = "getPagesWithdcTermType")
   public void verifyPagesWithOGType(String path, String dcTermsType) {

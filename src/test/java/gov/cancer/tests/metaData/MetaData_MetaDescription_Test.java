@@ -15,9 +15,12 @@ import gov.cancer.tests.TestRunner;
 public class MetaData_MetaDescription_Test extends TestObjectBase {
 
   /**
-   * Verify <meta name="description" content""
+   * This method is checking if 'description' matatag name matches dcTermsSubject
+   * from data provider
    * 
-   * @param path Path of the page to check.
+   * @param path     Path of the page to check.
+   * @param metaDesc Label of metaDesc metatag.
+   * 
    */
   @Test(dataProvider = "getPagesWithMetaDescription")
   public void verifyPagesWithMetaDescription(String path, String metaDesc) {

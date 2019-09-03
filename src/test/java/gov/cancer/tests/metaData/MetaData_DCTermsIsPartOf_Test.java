@@ -15,10 +15,12 @@ import gov.cancer.tests.TestRunner;
 public class MetaData_DCTermsIsPartOf_Test extends TestObjectBase {
 
   /**
-   * Verify <meta name="dcterms.isPartOf" content="Coping"
-   *
+   * This method is checking if 'dcterms.isPartOf' matatag name matches
+   * dcTermsPartOf from data provider
    * 
-   * @param path Path of the page to check.
+   * @param path          Path of the page to check.
+   * @param dcTermsPartOf Label of dcTermsPartOf metatag.
+   * 
    */
   @Test(dataProvider = "getPagesWithdcTermsPartOf")
   public void verifyPagesWithDCTermsPartOf(String path, String dcTermsPartOf) {

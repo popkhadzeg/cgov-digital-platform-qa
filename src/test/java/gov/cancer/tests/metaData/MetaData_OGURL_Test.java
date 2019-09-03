@@ -15,8 +15,8 @@ import gov.cancer.tests.TestRunner;
 public class MetaData_OGURL_Test extends TestObjectBase {
 
   /**
-   * Verify <meta property="og:url" content=
-   * 
+   * Asserts current page URL equals 'og:url' metatag
+   *
    * @param path Path of the page to check.
    */
   @Test(dataProvider = "getPagesWithMetaOGURL")

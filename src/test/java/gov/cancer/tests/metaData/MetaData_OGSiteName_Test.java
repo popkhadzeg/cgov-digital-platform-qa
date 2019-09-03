@@ -15,9 +15,12 @@ import gov.cancer.tests.TestRunner;
 public class MetaData_OGSiteName_Test extends TestObjectBase {
 
   /**
-   * Verify <meta property="og:site_name" content=""
+   * This method is checking if 'og:site_name' matatag name matches siteName from
+   * data provider
    * 
-   * @param path Path of the page to check.
+   * @param path   Path of the page to check.
+   * @param siteName Label of siteName metatag.
+   * 
    */
   @Test(dataProvider = "getPagesWithMetaSiteName")
   public void verifyPagesWithMetaSiteName(String path, String siteName) {

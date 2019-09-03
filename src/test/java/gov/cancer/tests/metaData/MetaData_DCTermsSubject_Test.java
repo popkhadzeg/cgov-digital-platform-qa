@@ -15,10 +15,12 @@ import gov.cancer.tests.TestRunner;
 public class MetaData_DCTermsSubject_Test extends TestObjectBase {
 
   /**
-   * Verify <meta name="dcterms.subject" content="About Cancer
-   *
+   * This method is checking if 'dcterms.subject' matatag name matches
+   * dcTermsSubject from data provider
    * 
-   * @param path Path of the page to check.
+   * @param path           Path of the page to check.
+   * @param dcTermsSubject Label of dcTermsSubject metatag.
+   * 
    */
   @Test(dataProvider = "getPagesWithdcTermsSubject")
   public void verifyPagesWithDCTermsSubject(String path, String dcTermsSubject) {

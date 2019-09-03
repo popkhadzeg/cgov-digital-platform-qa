@@ -15,10 +15,10 @@ import gov.cancer.tests.TestRunner;
 public class MetaData_BrowserTitle_Test extends TestObjectBase {
 
   /**
-   * Verify <meta name="title" content=[Browser title]
-   *
+   * Asserts current page title equals meta title
    * 
-   * @param path Path of the page to check.
+   * @param path
+   *          Path of the page to check.
    */
   @Test(dataProvider = "getPagesWithBrowserTitle")
   public void verifyPagesWithBrowserTitle(String path) {

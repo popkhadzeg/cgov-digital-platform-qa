@@ -20,7 +20,7 @@ public class MetaTag {
   }
 
   /**
-   * Returns the content of the meta tag
+   * Returns the 'content' attribute of the meta tag
    */
   public String getContent() {
     return this.element.getAttribute("content");
@@ -29,7 +29,7 @@ public class MetaTag {
   
 
   /**
-   * Returns the content of the meta tag
+   * Returns the 'getHref' attribute of the meta tag
    */
   public String getHref() {
     return this.element.getAttribute("hreflang");

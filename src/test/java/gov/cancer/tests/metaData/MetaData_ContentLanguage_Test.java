@@ -15,10 +15,12 @@ import gov.cancer.tests.TestRunner;
 public class MetaData_ContentLanguage_Test extends TestObjectBase {
 
   /**
-   * Verify http-equiv="content-language" content="en"
-   *
+   * This method is checking if Content language matatag matches language
+   * label from data provider
    * 
-   * @param path Path of the page to check.
+   * @param path     Path of the page to check.
+   * @param language Label of Content language.
+   * 
    */
   @Test(dataProvider = "getPagesWithMetaContentLanguage")
   public void verifyPagesWithMetaContentLanguage(String path, String language) {

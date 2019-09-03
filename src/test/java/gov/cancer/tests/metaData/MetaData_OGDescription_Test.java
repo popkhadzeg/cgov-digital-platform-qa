@@ -15,9 +15,12 @@ import gov.cancer.tests.TestRunner;
 public class MetaData_OGDescription_Test extends TestObjectBase {
 
   /**
-   * Verify <meta property="og:description" content=
+   * This method is checking if 'og:description' matatag name matches ogDesc from
+   * data provider
    * 
-   * @param path Path of the page to check.
+   * @param path   Path of the page to check.
+   * @param ogDesc Label of ogDesc metatag.
+   * 
    */
   @Test(dataProvider = "getPagesWithOGDescription")
   public void verifyPagesWithMetaDescription(String path, String ogDesc) {
